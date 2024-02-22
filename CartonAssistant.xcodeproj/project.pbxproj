@@ -10,20 +10,26 @@
 		2B65E1372B86F5C900C8532B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B65E1362B86F5C900C8532B /* AppDelegate.swift */; };
 		2B65E1392B86F5C900C8532B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B65E1382B86F5C900C8532B /* SceneDelegate.swift */; };
 		2B65E13B2B86F5C900C8532B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B65E13A2B86F5C900C8532B /* ViewController.swift */; };
-		2B65E13E2B86F5C900C8532B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B65E13C2B86F5C900C8532B /* Main.storyboard */; };
 		2B65E1402B86F5CA00C8532B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B65E13F2B86F5CA00C8532B /* Assets.xcassets */; };
 		2B65E1432B86F5CA00C8532B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B65E1412B86F5CA00C8532B /* LaunchScreen.storyboard */; };
+		2B65E14D2B86F7C500C8532B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B65E14C2B86F7C500C8532B /* MainTabBarController.swift */; };
+		2B65E1502B86F7CC00C8532B /* ZHNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B65E14F2B86F7CC00C8532B /* ZHNavigationController.swift */; };
+		7C8973B5C4B976B0CD0C1D34 /* Pods_CartonAssistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB0C107D894390813E073264 /* Pods_CartonAssistant.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		051C05C5A149DF58FCF3C8F9 /* Pods-CartonAssistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CartonAssistant.debug.xcconfig"; path = "Target Support Files/Pods-CartonAssistant/Pods-CartonAssistant.debug.xcconfig"; sourceTree = "<group>"; };
 		2B65E1332B86F5C900C8532B /* CartonAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CartonAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B65E1362B86F5C900C8532B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B65E1382B86F5C900C8532B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2B65E13A2B86F5C900C8532B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2B65E13D2B86F5C900C8532B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2B65E13F2B86F5CA00C8532B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B65E1422B86F5CA00C8532B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B65E1442B86F5CA00C8532B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B65E14C2B86F7C500C8532B /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		2B65E14F2B86F7CC00C8532B /* ZHNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZHNavigationController.swift; sourceTree = "<group>"; };
+		377BC1D425CEBB9F4BB9B2BF /* Pods-CartonAssistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CartonAssistant.release.xcconfig"; path = "Target Support Files/Pods-CartonAssistant/Pods-CartonAssistant.release.xcconfig"; sourceTree = "<group>"; };
+		AB0C107D894390813E073264 /* Pods_CartonAssistant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CartonAssistant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C8973B5C4B976B0CD0C1D34 /* Pods_CartonAssistant.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C9F672A93541AD16152266D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB0C107D894390813E073264 /* Pods_CartonAssistant.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2B65E12A2B86F5C900C8532B = {
 			isa = PBXGroup;
 			children = (
 				2B65E1352B86F5C900C8532B /* CartonAssistant */,
 				2B65E1342B86F5C900C8532B /* Products */,
+				DAAAD24B470066EEA356C159 /* Pods */,
+				0C9F672A93541AD16152266D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,12 +76,46 @@
 				2B65E1362B86F5C900C8532B /* AppDelegate.swift */,
 				2B65E1382B86F5C900C8532B /* SceneDelegate.swift */,
 				2B65E13A2B86F5C900C8532B /* ViewController.swift */,
-				2B65E13C2B86F5C900C8532B /* Main.storyboard */,
+				2B65E14E2B86F7CC00C8532B /* ZHUIKit */,
+				2B65E14A2B86F7C500C8532B /* ZHMain */,
 				2B65E13F2B86F5CA00C8532B /* Assets.xcassets */,
 				2B65E1412B86F5CA00C8532B /* LaunchScreen.storyboard */,
 				2B65E1442B86F5CA00C8532B /* Info.plist */,
 			);
 			path = CartonAssistant;
+			sourceTree = "<group>";
+		};
+		2B65E14A2B86F7C500C8532B /* ZHMain */ = {
+			isa = PBXGroup;
+			children = (
+				2B65E14B2B86F7C500C8532B /* MainTabBar */,
+			);
+			path = ZHMain;
+			sourceTree = "<group>";
+		};
+		2B65E14B2B86F7C500C8532B /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				2B65E14C2B86F7C500C8532B /* MainTabBarController.swift */,
+			);
+			path = MainTabBar;
+			sourceTree = "<group>";
+		};
+		2B65E14E2B86F7CC00C8532B /* ZHUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				2B65E14F2B86F7CC00C8532B /* ZHNavigationController.swift */,
+			);
+			path = ZHUIKit;
+			sourceTree = "<group>";
+		};
+		DAAAD24B470066EEA356C159 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				051C05C5A149DF58FCF3C8F9 /* Pods-CartonAssistant.debug.xcconfig */,
+				377BC1D425CEBB9F4BB9B2BF /* Pods-CartonAssistant.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +125,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2B65E1472B86F5CA00C8532B /* Build configuration list for PBXNativeTarget "CartonAssistant" */;
 			buildPhases = (
+				9E9C64CCFBBFE439136B56AB /* [CP] Check Pods Manifest.lock */,
 				2B65E12F2B86F5C900C8532B /* Sources */,
 				2B65E1302B86F5C900C8532B /* Frameworks */,
 				2B65E1312B86F5C900C8532B /* Resources */,
+				597EA90D5C4792EA36A95B63 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,11 +180,52 @@
 			files = (
 				2B65E1432B86F5CA00C8532B /* LaunchScreen.storyboard in Resources */,
 				2B65E1402B86F5CA00C8532B /* Assets.xcassets in Resources */,
-				2B65E13E2B86F5C900C8532B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		597EA90D5C4792EA36A95B63 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CartonAssistant/Pods-CartonAssistant-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CartonAssistant/Pods-CartonAssistant-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CartonAssistant/Pods-CartonAssistant-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E9C64CCFBBFE439136B56AB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CartonAssistant-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2B65E12F2B86F5C900C8532B /* Sources */ = {
@@ -140,6 +234,8 @@
 			files = (
 				2B65E13B2B86F5C900C8532B /* ViewController.swift in Sources */,
 				2B65E1372B86F5C900C8532B /* AppDelegate.swift in Sources */,
+				2B65E14D2B86F7C500C8532B /* MainTabBarController.swift in Sources */,
+				2B65E1502B86F7CC00C8532B /* ZHNavigationController.swift in Sources */,
 				2B65E1392B86F5C900C8532B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,14 +243,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2B65E13C2B86F5C900C8532B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2B65E13D2B86F5C900C8532B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2B65E1412B86F5CA00C8532B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -203,7 +291,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -266,7 +354,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -287,6 +375,7 @@
 		};
 		2B65E1482B86F5CA00C8532B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 051C05C5A149DF58FCF3C8F9 /* Pods-CartonAssistant.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -300,6 +389,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,6 +405,7 @@
 		};
 		2B65E1492B86F5CA00C8532B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 377BC1D425CEBB9F4BB9B2BF /* Pods-CartonAssistant.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -328,6 +419,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
