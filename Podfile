@@ -6,6 +6,7 @@ target 'CartonAssistant' do
   use_frameworks!
 
   # Pods for CartonAssistant
+  pod  'SnapKit'
   pod 'LookinServer', :configurations => ['Debug']
 
 end
