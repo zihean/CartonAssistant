@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B4E11922B8870A600FBE93B /* MainTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4E11912B8870A600FBE93B /* MainTabItem.swift */; };
+		2B4E136B2B8871E100FBE93B /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4E136A2B8871E100FBE93B /* MainTabBar.swift */; };
+		2B4E136D2B8872A800FBE93B /* MainTabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4E136C2B8872A800FBE93B /* MainTabButton.swift */; };
+		2B4E136F2B8885B900FBE93B /* GlobalVariable  .swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4E136E2B8885B900FBE93B /* GlobalVariable  .swift */; };
 		2B65E1372B86F5C900C8532B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B65E1362B86F5C900C8532B /* AppDelegate.swift */; };
 		2B65E1392B86F5C900C8532B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B65E1382B86F5C900C8532B /* SceneDelegate.swift */; };
 		2B65E13B2B86F5C900C8532B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B65E13A2B86F5C900C8532B /* ViewController.swift */; };
@@ -19,6 +23,10 @@
 
 /* Begin PBXFileReference section */
 		051C05C5A149DF58FCF3C8F9 /* Pods-CartonAssistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CartonAssistant.debug.xcconfig"; path = "Target Support Files/Pods-CartonAssistant/Pods-CartonAssistant.debug.xcconfig"; sourceTree = "<group>"; };
+		2B4E11912B8870A600FBE93B /* MainTabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabItem.swift; sourceTree = "<group>"; };
+		2B4E136A2B8871E100FBE93B /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
+		2B4E136C2B8872A800FBE93B /* MainTabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabButton.swift; sourceTree = "<group>"; };
+		2B4E136E2B8885B900FBE93B /* GlobalVariable  .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GlobalVariable  .swift"; sourceTree = "<group>"; };
 		2B65E1332B86F5C900C8532B /* CartonAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CartonAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B65E1362B86F5C900C8532B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B65E1382B86F5C900C8532B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +60,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2B4E11902B886E8D00FBE93B /* ZHDemo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ZHDemo;
+			sourceTree = "<group>";
+		};
 		2B65E12A2B86F5C900C8532B = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +91,7 @@
 				2B65E1362B86F5C900C8532B /* AppDelegate.swift */,
 				2B65E1382B86F5C900C8532B /* SceneDelegate.swift */,
 				2B65E13A2B86F5C900C8532B /* ViewController.swift */,
+				2B4E11902B886E8D00FBE93B /* ZHDemo */,
 				2B65E14E2B86F7CC00C8532B /* ZHUIKit */,
 				2B65E14A2B86F7C500C8532B /* ZHMain */,
 				2B65E13F2B86F5CA00C8532B /* Assets.xcassets */,
@@ -97,6 +113,9 @@
 			isa = PBXGroup;
 			children = (
 				2B65E14C2B86F7C500C8532B /* MainTabBarController.swift */,
+				2B4E11912B8870A600FBE93B /* MainTabItem.swift */,
+				2B4E136A2B8871E100FBE93B /* MainTabBar.swift */,
+				2B4E136C2B8872A800FBE93B /* MainTabButton.swift */,
 			);
 			path = MainTabBar;
 			sourceTree = "<group>";
@@ -105,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				2B65E14F2B86F7CC00C8532B /* ZHNavigationController.swift */,
+				2B4E136E2B8885B900FBE93B /* GlobalVariable  .swift */,
 			);
 			path = ZHUIKit;
 			sourceTree = "<group>";
@@ -232,10 +252,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B4E136F2B8885B900FBE93B /* GlobalVariable  .swift in Sources */,
 				2B65E13B2B86F5C900C8532B /* ViewController.swift in Sources */,
+				2B4E11922B8870A600FBE93B /* MainTabItem.swift in Sources */,
+				2B4E136B2B8871E100FBE93B /* MainTabBar.swift in Sources */,
 				2B65E1372B86F5C900C8532B /* AppDelegate.swift in Sources */,
 				2B65E14D2B86F7C500C8532B /* MainTabBarController.swift in Sources */,
 				2B65E1502B86F7CC00C8532B /* ZHNavigationController.swift in Sources */,
+				2B4E136D2B8872A800FBE93B /* MainTabButton.swift in Sources */,
 				2B65E1392B86F5C900C8532B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
