@@ -11,6 +11,14 @@ import SnapKit
 class MainTabBarController: UITabBarController {
     
     internal lazy var mainTabBar = MainTabBar()
+    var tabList: [MainTabItem.TabType] = [] {
+        didSet {
+            let vcs = tabList.map({ getTabVC(type: $0) })
+            let items = tabList.map({ MainTabItem(type: $0) })
+            viewControllers = vcs
+            mainTabBar.resetTabs(items: items)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +33,7 @@ class MainTabBarController: UITabBarController {
 
 extension MainTabBarController {
     func updateMainTabBar(selected: MainTabItem.TabType?) {
+        selectedIndex = tabList.firstIndex(where: { $0 == selected }) ?? 0
         mainTabBar.update(selected: selected)
     }
 }
@@ -42,30 +51,25 @@ private extension MainTabBarController {
     
     func setupFirstLaunchTabs() {
         let defaultTab: MainTabItem.TabType = .demo
-        let defaultVC = getTabVC(type: defaultTab)
-        let defaultItem = MainTabItem(type: defaultTab)
-        viewControllers = [defaultVC]
-        mainTabBar.resetTabs(items: [defaultItem])
-        mainTabBar.update(selected: defaultTab)
+        tabList = [defaultTab]
+        updateMainTabBar(selected: defaultTab)
     }
     
     func setupTabs() {
         let tabs: [MainTabItem.TabType] = [.demo, .account, .my]
-        let vcs = tabs.map({ getTabVC(type: $0) })
-        let items = tabs.map({ MainTabItem(type: $0) })
-        viewControllers = vcs
-        mainTabBar.resetTabs(items: items)
+        tabList = tabs
     }
     
     func getTabVC(type: MainTabItem.TabType) -> ZHNavigationController {
         let navVC: ZHNavigationController
         switch type {
         case .demo:
-            navVC = ZHNavigationController()
+            let demoListVC = DemoListViewController.getList()
+            navVC = ZHNavigationController(rootViewController: demoListVC)
         case .my:
-            navVC = ZHNavigationController()
+            navVC = ZHNavigationController(rootViewController: UIViewController())
         case .account:
-            navVC = ZHNavigationController()
+            navVC = ZHNavigationController(rootViewController: UIViewController())
         }
         return navVC
     }
