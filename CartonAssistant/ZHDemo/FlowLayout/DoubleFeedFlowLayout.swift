@@ -38,6 +38,7 @@ class DoubleFeedLayout: UICollectionViewLayout {
     
     override func prepare() {
         super.prepare()
+        print("prepare")
         
         // reset
         layoutAttributes = [UICollectionViewLayoutAttributes]()
@@ -63,9 +64,11 @@ class DoubleFeedLayout: UICollectionViewLayout {
             for index in stride(from: columnHeights.count - 1, through: 0, by: -1) {
                 let columnHeight = columnHeights[index]
                 if columnHeight <= targetHeight {
+                    // 找到高度最低的列用于放下一个Cell
                     targetColumn = index
                     targetHeight = columnHeight
                 } else {
+                    // 更新最大高度，高度最高的那一列的高度需要赋值给collectionview的contentsize的高度
                     maxHeight = max(maxHeight, targetHeight)
                 }
             }
@@ -76,6 +79,7 @@ class DoubleFeedLayout: UICollectionViewLayout {
             
             let newColumnHeight = y + cellHeight
             maxHeight = max(maxHeight, newColumnHeight)
+            // 记录所有cell的attributes
             columnHeights[targetColumn] = newColumnHeight
         }
     }

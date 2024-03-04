@@ -30,6 +30,7 @@
 		2B65E1432B86F5CA00C8532B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B65E1412B86F5CA00C8532B /* LaunchScreen.storyboard */; };
 		2B65E14D2B86F7C500C8532B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B65E14C2B86F7C500C8532B /* MainTabBarController.swift */; };
 		2B65E1502B86F7CC00C8532B /* ZHNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B65E14F2B86F7CC00C8532B /* ZHNavigationController.swift */; };
+		2BDED44B2B9612BA00130E43 /* CollectioinSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDED44A2B9612BA00130E43 /* CollectioinSortViewController.swift */; };
 		7C8973B5C4B976B0CD0C1D34 /* Pods_CartonAssistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB0C107D894390813E073264 /* Pods_CartonAssistant.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		2B65E1442B86F5CA00C8532B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B65E14C2B86F7C500C8532B /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		2B65E14F2B86F7CC00C8532B /* ZHNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZHNavigationController.swift; sourceTree = "<group>"; };
+		2BDED44A2B9612BA00130E43 /* CollectioinSortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectioinSortViewController.swift; sourceTree = "<group>"; };
 		377BC1D425CEBB9F4BB9B2BF /* Pods-CartonAssistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CartonAssistant.release.xcconfig"; path = "Target Support Files/Pods-CartonAssistant/Pods-CartonAssistant.release.xcconfig"; sourceTree = "<group>"; };
 		AB0C107D894390813E073264 /* Pods_CartonAssistant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CartonAssistant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -117,6 +119,7 @@
 		2B0DEC0A2B95A2B600391812 /* CollectionSort */ = {
 			isa = PBXGroup;
 			children = (
+				2BDED44A2B9612BA00130E43 /* CollectioinSortViewController.swift */,
 			);
 			path = CollectionSort;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BDED44B2B9612BA00130E43 /* CollectioinSortViewController.swift in Sources */,
 				2B08E5D02B8F303500DDDFF8 /* FlowLayoutViewController.swift in Sources */,
 				2B4E136F2B8885B900FBE93B /* GlobalVariable  .swift in Sources */,
 				2B08E5C82B8F2CFE00DDDFF8 /* DemoListViewController.swift in Sources */,

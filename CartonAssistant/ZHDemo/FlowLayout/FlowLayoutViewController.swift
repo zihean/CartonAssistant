@@ -9,6 +9,12 @@ import UIKit
 
 class FlowLayoutViewController: UIViewController {
     
+    static let number = [
+        ["1", "2", "3", "4", "5"],
+        ["11", "12", "13", "14"],
+        ["21", "22", "23", "24", "25", "26"]
+    ]
+    
     static let data = [["妙蛙种子", "小火龙", "杰尼龟", "绿毛虫", "波波", "独角虫", "铁甲蛹", "大针蜂", "泥蛙", "三合一磁怪",
                 "喵喵", "猫老大", "可达鸭", "哥达鸭", "猴怪", "火暴猴", "卡蒂狗", "风速狗", "蚊香蝌蚪", "蚊香君",
                 "蝌蚪王", "暴鲤龙", "乘龙", "百变怪", "伊布", "水伊布", "雷伊布", "火伊布", "多边兽", "菊石兽",
@@ -21,7 +27,7 @@ class FlowLayoutViewController: UIViewController {
                         ["小锯鳄", "蓝鳄", "大力鳄", "尾立", "大尾立"]
                      ]
     
-    let data = [mat, data, data, mat]
+    let data = [number, data, data, mat]
     let cellColors: [UIColor] = [.red, .blue, .green]
     let cellHeights: [CGFloat] = [100, 170, 190, 60, 100]
     
@@ -151,14 +157,14 @@ private extension FlowLayoutViewController {
     
     func getNormalCollectionView() -> UICollectionView {
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .vertical
-        //        flowLayout.scrollDirection = .horizontal
+//        flowLayout.scrollDirection = .vertical
+        flowLayout.scrollDirection = .horizontal
         flowLayout.itemSize = CGSize(width: 100, height: 60)
-        flowLayout.minimumLineSpacing = 10
+        flowLayout.minimumLineSpacing = 30
         flowLayout.minimumInteritemSpacing = 20
-        //        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        flowLayout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-        //        collectionView.contentInset = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: -5)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.tag = 0
@@ -170,9 +176,10 @@ private extension FlowLayoutViewController {
     
     func getDoubleFlowCollectionView() -> UICollectionView {
         let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.itemSize = CGSize(width: 100, height: 60)
         flowLayout.scrollDirection = .vertical
         flowLayout.minimumLineSpacing = 10
-        flowLayout.minimumInteritemSpacing = 20
+        flowLayout.minimumInteritemSpacing = 0
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -261,7 +268,8 @@ extension FlowLayoutViewController: UICollectionViewDataSource {
 extension FlowLayoutViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView.tag == 1 {
-            return CGSize(width: (UIScreen.main.bounds.width - 44) / 2, height: cellHeights[(indexPath.row % 5)])
+//            return CGSize(width: (UIScreen.main.bounds.width - 44) / 2, height: cellHeights[(indexPath.row % 5)])
+            return CGSize(width: cellHeights[(indexPath.row % 4)], height: cellHeights[(indexPath.row % 5)])
         } else if let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout {
             return flowLayout.itemSize
         } else {
@@ -298,5 +306,10 @@ class FlowLayoutCell: UICollectionViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        label.text = nil
+        layer.cornerRadius = 0
     }
 }
