@@ -86,11 +86,20 @@ private extension ZHTopBar {
             make.left.equalTo(leftItemBtn.snp.right).offset(10)
             make.right.equalTo(rightItemBtn.snp.left).offset(-10)
         }
+        
+        let splitView = UIView()
+        splitView.backgroundColor = .systemGray
+        addSubview(splitView)
+        splitView.snp.makeConstraints { make in
+            make.left.bottom.right.equalToSuperview()
+            make.height.equalTo(onePixel)
+        }
     }
     
     func getTitleLabel() -> UILabel {
         let titleLabel = UILabel()
         titleLabel.font = .systemFont(ofSize: 14, weight: .semibold)
+        titleLabel.textColor = .black
         titleLabel.textAlignment = .center
         return titleLabel
     }
@@ -150,6 +159,7 @@ class ZHTopBarItemButton: UIView {
     private func getTitleLabel() -> UILabel {
         let titleLabel = UILabel()
         titleLabel.font = .systemFont(ofSize: 12, weight: .medium)
+        titleLabel.textColor = .black
         titleLabel.textAlignment = forLeft ? .left : .right
         return titleLabel
     }
