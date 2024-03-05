@@ -10,7 +10,7 @@ import UIKit
 class CollectioinSortViewController: UIViewController {
     lazy var collectionView: UICollectionView = makeCollectionView()
     
-    var items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
+    var items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item 8", "Item 9", "Item 10"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,13 +74,10 @@ extension CollectioinSortViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! Cell
-//        cell.backgroundColor = UIColor.lightGray
-//        cell.layer.cornerRadius = 8.0
-//        cell.clipsToBounds = true
-        
         let item = items[indexPath.item]
         cell.label.text = item
-        
+        cell.tagLabel.text = "\(indexPath.item + 1)"
+        cell.tagView.isHidden = false
         return cell
     }
     
@@ -98,17 +95,24 @@ extension CollectioinSortViewController: UICollectionViewDelegateFlowLayout {
 
 extension CollectioinSortViewController: UICollectionViewDragDelegate {
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-        guard indexPath.item < items.count - 1 else {
+        guard indexPath.item < items.count else {
             return []
         }
-        let item = items[indexPath.item]
-        let itemProvider = NSItemProvider(object: item as NSString)
-        let dragItem = UIDragItem(itemProvider: itemProvider)
-        dragItem.localObject = collectionView.cellForItem(at: indexPath)
+        
+        let dragItem = UIDragItem(itemProvider: .init())
         return [dragItem]
     }
     
-    // 实现其他必要的拖动代理方法
+    func collectionView(_ collectionView: UICollectionView, dragPreviewParametersForItemAt indexPath: IndexPath) -> UIDragPreviewParameters? {
+        if let cell = collectionView.cellForItem(at: indexPath) as? Cell {
+            cell.tagView.isHidden = true
+        }
+        
+        let previewParameters = UIDragPreviewParameters()
+        previewParameters.backgroundColor = .clear
+        previewParameters.visiblePath = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 60, height: 50), cornerRadius: 14)
+        return previewParameters
+    }
 }
 
 extension CollectioinSortViewController: UICollectionViewDropDelegate {
@@ -121,24 +125,6 @@ extension CollectioinSortViewController: UICollectionViewDropDelegate {
         guard let destinationIndexPath = coordinator.destinationIndexPath else { return }
         
         switch coordinator.proposal.operation {
-        case .copy:
-            //执行批量更新
-            collectionView.performBatchUpdates({
-                var indexPaths = [IndexPath]()
-                for (index, item) in coordinator.items.enumerated() {
-                    guard let sourceIndexPath = item.sourceIndexPath else {
-                        continue
-                    }
-                    let itemm = self.items[sourceIndexPath.row]
-                    
-                    let indexPath = IndexPath(row: destinationIndexPath.row + index, section: destinationIndexPath.section)
-                    self.items.insert(itemm, at: indexPath.row)
-//                    self.itemNames[destinationIndexPath.section]!.insert(item.dragItem.localObject as! String, at: indexPath.row)
-                    indexPaths.append(indexPath)
-                }
-                collectionView.insertItems(at: indexPaths)
-            })
-            return
         case .move:
             let items = coordinator.items
             if let item = items.first, let sourceIndexPath = item.sourceIndexPath {
@@ -149,89 +135,21 @@ extension CollectioinSortViewController: UICollectionViewDropDelegate {
                     self.items.remove(at: sourceIndexPath.row)
                     self.items.insert(item, at: destinationIndexPath.row)
                     
-//                    self.itemNames[destinationIndexPath.section]!.remove(at: sourceIndexPath.row)
-//                    self.itemNames[destinationIndexPath.section]!.insert(item.dragItem.localObject as! String, at: destinationIndexPath.row)
-                    
                     collectionView.deleteItems(at: [sourceIndexPath])
                     collectionView.insertItems(at: [destinationIndexPath])
                 })
-                //将项目动画化到视图层次结构中的任意位置
+                //将Cell使用动画移动到预期位置
                 coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
             }
             return
         default:
             return
         }
-        
-        coordinator.items.forEach { dropItem in
-            guard let sourceIndexPath = dropItem.sourceIndexPath,
-                  let cell = dropItem.dragItem.localObject as? Cell else {
-                return
-            }
-            
-//            let item = items[sourceIndexPath.row]
-//            items.remove(at: sourceIndexPath.row)
-//            items.insert(item, at: destinationIndexPath.row)
-//
-//            let framee = collectionView.cellForItem(at: destinationIndexPath)?.frame ?? .zero
-//            let shot = cell.snapshotView(afterScreenUpdates: false)
-//            if let shot {
-//                shot.frame = CGRect(origin: coordinator.session.location(in: collectionView), size: cell.frame.size)
-//                collectionView.addSubview(shot)
-//            }
-//            cell.frame = CGRect(origin: coordinator.session.location(in: collectionView), size: cell.frame.size)
-//            cell.alpha = 0
-//
-//            UIView.animate(withDuration: 0.3) {
-//                shot?.frame = framee
-//            }
-//
-//            collectionView.performBatchUpdates {
-//                collectionView.moveItem(at: sourceIndexPath, to: destinationIndexPath)
-//            } completion: { [weak self] _ in
-//                coordinator.drop(dropItem.dragItem, toItemAt: destinationIndexPath)
-//                self?.collectionView.reloadData()
-//    //            self?.reportAction(action: Tracker.MediumVideo.Action.organizeDone)
-//            }
-            
-//            let item = items[sourceIndexPath.row]
-//            let targetFrame = collectionView.cellForItem(at: destinationIndexPath)?.frame ?? .zero
-//
-//            self.items.remove(at: sourceIndexPath.row)
-//            self.items.insert(item, at: destinationIndexPath.row)
-//
-//            let anima = coordinator.drop(dropItem.dragItem, toItemAt: destinationIndexPath)
-//            anima.addAnimations {
-//                cell.frame = targetFrame
-//            }
-//
-//            anima.addCompletion { [weak self] po in
-//                guard let self = self else { return }
-//                self.collectionView.reloadData()
-//            }
-//
-            
-//             3
-            collectionView.performBatchUpdates({
-                let item = items[sourceIndexPath.row]
-                
-                items.remove(at: sourceIndexPath.row)
-                items.insert(item, at: destinationIndexPath.row)
-                
-                collectionView.deleteItems(at: [sourceIndexPath])
-                collectionView.insertItems(at: [destinationIndexPath])
-            }, completion: { _ in
-              // 4
-                coordinator.drop(dropItem.dragItem, toItemAt: destinationIndexPath)
-            })
-            
-        }
     }
     
     // Implement other necessary drop delegate methods
     func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
-        guard let destinationIndexPath,
-              items.count > destinationIndexPath.row + 1 || (items.count == 1 && destinationIndexPath.row == 0) else {
+        guard let destinationIndexPath else {
             return UICollectionViewDropProposal(operation: .forbidden)
         }
         
@@ -242,28 +160,29 @@ extension CollectioinSortViewController: UICollectionViewDropDelegate {
         return UICollectionViewDropProposal(operation: .forbidden)
     }
     
-    func collectionView(_ collectionView: UICollectionView, dragPreviewParametersForItemAt indexPath: IndexPath) -> UIDragPreviewParameters? {
+    func collectionView(_ collectionView: UICollectionView, dropPreviewParametersForItemAt indexPath: IndexPath) -> UIDragPreviewParameters? {
+        if let cell = collectionView.cellForItem(at: indexPath) as? Cell {
+            cell.tagView.isHidden = true
+        }
+        
         let previewParameters = UIDragPreviewParameters()
         previewParameters.backgroundColor = .clear
         previewParameters.visiblePath = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 60, height: 50), cornerRadius: 14)
         return previewParameters
     }
     
-    func collectionView(_ collectionView: UICollectionView, dropPreviewParametersForItemAt indexPath: IndexPath) -> UIDragPreviewParameters? {
-        let previewParameters = UIDragPreviewParameters()
-        previewParameters.backgroundColor = .clear
-        previewParameters.visiblePath = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 60, height: 50), cornerRadius: 14)
-        return previewParameters
+    func collectionView(_ collectionView: UICollectionView, dropSessionDidEnd session: UIDropSession) {
+        collectionView.reloadData()
     }
 }
 
 class Cell: UICollectionViewCell {
-    let label: UILabel
+    let label: UILabel = UILabel(frame: .zero)
+    let tagLabel: UILabel = UILabel(frame: .zero)
+    let tagView = UIView()
     var position: CGPoint = .zero
     
     override init(frame: CGRect) {
-        label = UILabel(frame: .zero)
-        
         super.init(frame: frame)
         
         let bgView = UIView()
@@ -281,9 +200,20 @@ class Cell: UICollectionViewCell {
             make.center.equalToSuperview()
         }
         
-//        contentView.backgroundColor = UIColor.lightGray
-//        contentView.layer.cornerRadius = 8.0
-//        contentView.clipsToBounds = true
+        tagView.backgroundColor = .systemOrange
+        tagView.layer.cornerRadius = 10
+        contentView.addSubview(tagView)
+        tagView.snp.makeConstraints { make in
+            make.size.equalTo(20)
+            make.centerX.equalTo(contentView.snp.right)
+            make.centerY.equalTo(contentView.snp.top)
+        }
+        
+        tagLabel.textAlignment = .center
+        tagView.addSubview(tagLabel)
+        tagLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
